@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <img src="../../static/undraw_medical_care_movn.svg" class="card-img-top" alt="...">
+            <h5 class="card-title">Adequan Calculator</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Find out how many boxes you need</h6>
+            <form action="{{ url_for('site.calculate_days_supply') }}" method="POST">
+              <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <label for="inputPassword6" class="col-form-label">Initial dose</label>
+                  </div>
+                  <div class="col-auto">
+                    <input type="number" id="input-initial-dose" name="input-initial-dose" class="form-control" aria-describedby="passwordHelpInline">
+                  </div>
+                  <div class="col-auto">
+                    <span id="passwordHelpInline" class="form-text">
+                      What volume is the starting dose.
+                    </span>
+                  </div>
+              </div>
+              <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <label for="inputPassword6" class="col-form-label">Frequency</label>
+                  </div>
+                  <div class="col-auto">
+                    <input type="number" id="input-frequency" name="input-frequency" class="form-control" aria-describedby="passwordHelpInline">
+                  </div>
+                  <div class="col-auto">
+                    <span id="passwordHelpInline" class="form-text">
+                      How often are they taking this per week?
+                    </span>
+                  </div>
+                  <!-- Button trigger modal -->
+                  <button type="submit" class="btn btn-primary">Calculate</button>
+              </div>
+            </form>
+            {% if result %}
+            <p>You need {{ result }} boxes.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

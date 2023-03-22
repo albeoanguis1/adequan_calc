@@ -1,0 +1,22 @@
+/* header stuff in base */
+
+#yams{
+  padding-left: 1em;  
+}
+
+/* body{
+    background-image: url( '' );
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+body{
+    background: radial-gradient(circle, #CADEBE 10%, transparent 11%),radial-gradient(circle at bottom left, #CADEBE 5%, transparent 6%),radial-gradient(circle at bottom right, #CADEBE 5%, transparent 6%),radial-gradient(circle at top left, #CADEBE 5%, transparent 6%),radial-gradient(circle at top right, #CADEBE 5%, transparent 6%);
+    background-size: 1em 1em;
+    background-color: #ffffff;
+    opacity: 1
+}
+
+.card{
+    margin: auto;
+}
