@@ -17,12 +17,23 @@
 
 <body>
   <header>
-    <!-- Image and text -->
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand d-flex" href="{{ url_for('site.home') }}">
-        <lord-icon src="https://cdn.lordicon.com/eoabunbr.json" trigger="hover" style="width:60px;height:60px"></lord-icon>
-        <h4 class="align-self-center" id="yams">not your fathers pharmacy calculator</h4>
-      </a>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('site.home') }}"><lord-icon src="https://cdn.lordicon.com/eoabunbr.json" trigger="hover" style="width:60px;height:60px"></lord-icon></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('site.home') }}">Adequan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Day Supply</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
   <main>

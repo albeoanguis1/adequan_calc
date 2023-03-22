@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request
+from math import ceil
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 
@@ -23,17 +24,10 @@ def calculate_days_supply():
     print(f'Frequency: {frequency}/week')
     
     total_amount = 2 * 5 # total amount in 1 box
-    max_days_supply = 56 # maximum days supply with 1 box
-    days_supply = total_amount / (initial_dose * frequency) #to get the weeks
+    amount_per_week = initial_dose * frequency
+    weeks_supply_per_box = total_amount / amount_per_week 
+    boxes_needed = ceil(4/weeks_supply_per_box)
 
-    if days_supply > max_days_supply:
-        boxes_needed = days_supply / max_days_supply #how many boxes to cover the days supply
-        result = f"Days supply exceeds maximum. You would need {boxes_needed} box(es) to cover the days supply."
-        print(result)        
-    else:
-        result = days_supply * 7
-        print(result)
-
-
+    result = f'You need {boxes_needed} boxes to cover the month.'
 
     return render_template('index.html' ,  result=result)
