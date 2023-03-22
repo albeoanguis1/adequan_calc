@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <img src="../../static/undraw_medicine_b-1-ol.svg" class="card-img-top" alt="...">
+            <h5 class="card-title">Day Supply Calculator</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Find out the days supply.</h6>
+            <form action="{{ url_for('site.calculate_supply') }}" method="POST">
+              <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <label for="inputPassword6" class="col-form-label">Quantity</label>
+                  </div>
+                  <div class="col-auto">
+                    <input type="number" id="input-quanity" name="input-quantity" class="form-control" aria-describedby="passwordHelpInline">
+                  </div>
+                  <div class="col-auto">
+                    <span id="passwordHelpInline" class="form-text">
+                      What is the quantity that is prescribed or ordered?
+                    </span>
+                  </div>
+              </div>
+              <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <label for="inputPassword6" class="col-form-label">Dose</label>
+                  </div>
+                  <div class="col-auto">
+                    <input type="number" id="input-dose" name="input-dose" class="form-control" aria-describedby="passwordHelpInline">
+                  </div>
+                  <div class="col-auto">
+                    <span id="passwordHelpInline" class="form-text">
+                      How many are they taking at one time?
+                    </span>
+                  </div>
+              </div>
+              <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label for="inputPassword6" class="col-form-label">Frequency</label>
+                </div>
+                <div class="col-auto">
+                  <input type="number" id="input-frequency2" name="input-frequency2" class="form-control" aria-describedby="passwordHelpInline">
+                </div>
+                <div class="col-auto">
+                  <span id="passwordHelpInline" class="form-text">
+                    How many times per day are they taking this?
+                  </span>
+                </div>
+                <!-- Button trigger modal -->
+                <button type="submit" class="btn btn-primary" id="submit-btn">Calculate</button>
+            </div>
+            </form>
+            {% if result %}
+            <p id="result">{{ result }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

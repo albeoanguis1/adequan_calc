@@ -31,3 +31,24 @@ def calculate_days_supply():
     result = f'You need {boxes_needed} boxes to cover the month.'
 
     return render_template('index.html' ,  result=result)
+
+@site.route('/day_supply', methods=['GET', 'POST'])
+def calculate_supply():
+    quantity = request.form.get('input-quantity')
+    dose = request.form.get('input-dose')
+    frequency = request.form.get('input-frequency2')
+
+    if not quantity or not dose or not frequency:
+            # one or both inputs are blank, so just return the template
+            return render_template('day_supply.html')
+
+    quantity = float(quantity)
+    dose = float(dose)
+    frequency = float(frequency)
+
+    daily_tabs = dose * frequency
+    days_supply = quantity / daily_tabs
+    result =  f'You medication will last {days_supply} days'
+
+
+    return render_template('day_supply.html', result=result)
